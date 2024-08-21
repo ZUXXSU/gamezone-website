@@ -1,0 +1,153 @@
+/*main page*/
+body{
+    background-color: #222;
+}
+#topabout{
+    margin : 7vh 3vh 0 3vh;
+    padding: 3vh 3vh 5vh 3vh;
+    border-radius: 3vh;
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);;
+}
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 2vh;
+    color: #fff;
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 36px;
+    color: #FFD700; /* Gold color for heading */
+    margin-bottom: 3vh;
+    margin-top: 6vh;
+}
+
+.container p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Dark Theme */
+.dark-theme {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}
+
+
+/* Attractive Styling */
+.header-image {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-text {
+    color: #FFD700;
+    font-weight: bold;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animated {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/*FAQ*/
+.faq {
+    border: 1px solid #333;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.question {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.answer {
+    font-size: 18px;
+    line-height: 1.4;
+    display: none;
+}
+.cont_faq{
+    margin: 7vh 3vh 0 3vh;
+    padding: 3vh 3vh 5vh 3vh;
+    border-radius: 3vh;
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*leaflet*/
+.subscription {
+    margin: 3vh;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.leaflet {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFD700;
+    flex-grow: 1;
+}
+
+.subscribe-form {
+    display: flex;
+    align-items: center;
+}
+
+.email-input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.subscribe-button {
+    background-color: #FFD700;
+    color: #111;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+@media only screen and (max-width: 650px){
+    .leaflet{
+        margin: 0 0 2vh 0;
+    }
+    .subscription{
+        flex-direction: column;
+    }
+}

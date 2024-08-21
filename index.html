@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+    <title>Project HY8RID</title>
+</head>
+<body>
+    <section id="drawer" class="drawer">
+        
+        <!-- Content for the drawer goes here -->
+        <ul class="drawer_list">
+            <li><div class="drawersearch search-bar">
+                <input type="text" placeholder="Search for games">
+                <button><span class="material-symbols-outlined">search</span></button>
+                <button id="closeDrawer"><span class="material-symbols-outlined">
+                    arrow_back_ios
+                    </span></button>
+            </div></li>
+            <li><a href="index.html" >Home</a></li>
+            <li>
+                <a href="#" id="gameclick" style="cursor: pointer;">Games &nbsp;
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                </a>
+                <ul class="submenu" style="list-style: none;padding: 0 0 0 2vh;">
+                    <li><a href="games.html">Adventure</a></li>
+                    <li><a href="games.html">Puzzle</a></li>
+                    <li><a href="games.html">Educational</a></li>
+                    <li><a href="games.html">Sports</a></li>
+                </ul>
+            </li>
+            <li><a href="aboutus.html">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#" onclick="showLogin()">Login  &nbsp;<span class="material-symbols-outlined">login</span></a></li>
+        </ul>
+    </section>
+    <section class="error-section">
+        <p>This website is not optimized for small screens (less than 380px wide).</p>
+    </section>
+    <section class="floating-container" id="login-container">
+        <div class="login-box">
+            <div class="close_right"><a class="closelogin" href="#" id="close-login" onclick="hideLogin()"><span class="material-symbols-outlined">
+                close
+            </span></a></div>
+            <div class="login-value">
+                
+            <form action="index.html" id="login_form">
+                <h2>LOGIN</h2>
+                <div class="l_inputbox">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type="text" required>
+                    <label class="input_label">Email</label>
+                </div>
+                <div class="l_inputbox">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" required>
+                    <label class="input_label">Password</label>
+                </div>
+                <div class="l_forget">
+                    <label><input type="checkbox">Remember me</label>
+                    <a href="#">Forget Password ?</a>
+                </div>
+                <button>Log In</button>
+                <div class="l_register">
+                    <p>Don't have a account <a href="#">Register</a></p>
+                </div>
+            </form>
+        </div>
+        <div style="visibility: hidden;">haa</div>
+        </div>
+    </section>
+    <header class="sticky-nav" >
+        <nav>
+            <div class="top_navigation">
+            <div class="logo" id="logo">
+              <img src="images/logo.gif" alt="8MAN STUDIOS">
+            </div>
+            <ul>
+                <li class="hide"><a href="index.html">Home</a></li>
+                <li class="hide"><a id="gameclick" onclick="playGame()" style="cursor: pointer;">Games</a></li>
+                <li class="hide"><a href="aboutus.html">About</a></li>
+                <li class="hide"><a href="#">Services</a></li>
+                <li class="hide"><a href="#" onclick="showLogin()"><span class="material-symbols-outlined">
+                    login
+                    </span></a></li>
+                <li class="menu_btn" id="openDrawer"><a href="#"><span class="material-symbols-outlined">
+                    menu
+                </span></a></li>
+                
+            </ul>
+            </div>
+        </nav>
+        <div class="navbar" id="bottom_navigation">
+            <div class="spacer"></div>
+            <div class="categories">
+                <a href="games.html">Adventure</a>
+                <a href="games.html">Puzzle</a>
+                <a href="games.html">Educational</a>
+                <a href="games.html">Sports</a>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search for games">
+                <button><span class="material-symbols-outlined">
+                    search
+                    </span></button>
+                <span class="material-symbols-outlined just_circle">
+                    circle
+                    </span>
+            </div>
+            
+        </div>
+        
+    </header>
+    <main>
+
+
+        <br><br><br>
+        
+        <section id="new-release">
+          <div class="container">
+            <h3 class="heading">New Releases</h3>
+    
+            <div class="new-games-list">
+              
+              <div class="single-game">
+                  <div class="img-box">
+                    <img
+                      class="game-img"
+                      src="https://cdn1.epicgames.com/undefined/offer/EGS_RockstarGames_RedDeadRedemption2_S2-1280x1440-43b9260015986b748e616f399c6de4dc.jpg?h=854&resize=1&w=640"
+                      alt="game-pic"
+                    />
+                    <img
+                      class="game-logo"
+                      src="https://cdn1.epicgames.com/undefined/offer/EGS_RockstarGames_RedDeadRedemption2_IC1-625x625-53323ce93fb72cdb3e849730f6bdce83.png?h=270&resize=1&w=480"
+                    />
+                  </div>
+                  <h3 class="title">Read Dead Redemption 2</h3>
+                  <div class="sub-title">Rockstar Games</div>
+                  <button class="price-button">Play Now</button>
+                </div>
+              <div class="single-game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/undefined/offer/SWJFO_ADHOC_510X680-510x680-04ec2ab0afa8b571f51c34577bf1ec09.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img class="game-logo" src="" />
+                </div>
+    
+                <h3 class="title">Star Wars Jedi</h3>
+                <div class="sub-title">Respawn Entertainment</div>
+                <button class="price-button">Play Now</button>
+              </div>
+              <div class="single-game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/undefined/offer/Game-Logo_ShenmueIII-3168x692-b925655b198cf955c0802f4581faf6a3.png?h=270&resize=1&w=480"
+                  />
+                </div>
+                <h3 class="title">Shenmue III</h3>
+                <div class="sub-title">YsNet || Deep Silver</div>
+                <button class="price-button">Play Now</button>
+              </div>
+              <div class="single-game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/epic/offer/EN_EGS_Launcher_Takeover_Borderlands_S2-1280x1440-4e2e8a65b68229dc833cf5c4773f23c4.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/epic/offer/Oak_Logo_Standard-720x209-8373e0df5612a9952fe79defb32e1322.png?h=270&resize=1&w=480"
+                  />
+                </div>
+    
+                <h3 class="title">Border Lands 3</h3>
+                <div class="sub-title">Gearbox Software | 2K</div>
+                <button class="price-button">Play Now</button>
+              </div>
+              <div class="single-game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/epic/offer/ANC_Banner_TOW_NoLogo_1280x1440 (2)-1280x1140-5b445a5bbd0ba31cc63cbcb373ccfaa0.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/epic/offer/TheOuterWorlds-logo-dropshadow (1)-5544x2422-448a144fddbb69f460cb660441011eb9.png?h=270&resize=1&w=480"
+                  />
+                </div>
+                <h3 class="title">The Outer Worlds</h3>
+                <div class="sub-title">Obsidian Entertainment</div>
+                <button class="price-button">Play Now</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="slider">
+          <div id="slider">  
+
+            <div class="slides">  
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPTmhPqYbtQKwF1dhlsIRk3wmfsPBn2Dddcw&usqp=CAU" width="100%" />
+            </div> 
+
+            <div class="slides">  
+              <img src="https://wallpaperaccess.com/full/625497.jpg" width="100%" />
+             </div>
+              
+              <div class="slides">  
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN5C9vSaCcfKu0fH2w9S_kJXVKIqo1LcJ5CQ&usqp=CAU" width="100%" />
+            </div>
+              
+              
+              <div id="dot"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+             </div>
+        </section>
+        <section id="free-games-weekly">
+          <div class="container">
+            <h3 class="main-title heading">Free Games Every Week</h3>
+            <div class="games">
+              <div class="game">
+                <img
+                  src="https://cdn1.epicgames.com/undefined/offer/EGS_ThunderLotus_JotunValhallaEdition_S1-2560x1440-3de6d0151b1c97a08a8579167814682c.jpg?h=480&resize=1&w=854"
+                  alt="game"
+                />
+                <h5 class="is-it-free">FREE NOW</h5>
+                <h4 class="name">Jotun Valhalla Edition</h4>
+                <h5 class="free-time">Free Now - Dec 12 at 09.29 PM</h5>
+              </div>
+              <div class="game">
+                <img
+                  src="https://cdn1.epicgames.com/epic/offer/TheEscapists_Newsfeed Post-2560x1440-587a8d844cab1246b3253f2f98fab8a7.jpg?h=480&resize=1&w=854"
+                  alt="game"
+                />
+                <h5 class="is-it-free free-soon">COMING SOON</h5>
+                <h4 class="name">The Escapists</h4>
+                <h5 class="free-time">Free Dec 12 - Dec 19</h5>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="top-sellers">
+          <div class="container">
+            <div class="top-bar">
+              <h3 class="main-title heading">
+                Top Sellers
+              </h3>
+              <button class="more">
+                VIEW MORE
+              </button>
+            </div>
+            <div class="games">
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/undefined/offer/EGS_Bigben_Paranoia_S3-1084x1356-931b0c534dc68a9df8160626655116cf.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/undefined/offer/EGS_Bigben_Paranoia_IC1_LogoColor-1850x550-7a55ac537940e1e360edc005fa78e351.png?h=270&resize=1&w=480"
+                  />
+                </div>
+    
+                <h3 class="title">Paranoia</h3>
+                <div class="sub-title">Konami</div>
+                <button class="price-button">Play Now</button>
+              </div>
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/epic/offer/PhoenixPoint_NEWPortraitPromo-1280x1420-3ebed9c3972a5710778d97b6b1018905.png?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/epic/offer/PhoenixPoint_whitePNG-3220x432-72c3516e13c5ae6b2c89e568b77973c0.png?h=270&resize=1&w=480"
+                  />
+                </div>
+    
+                <h3 class="title">Phoenix Point</h3>
+                <div class="sub-title">Snapshot Games</div>
+                <button class="price-button">Play Now</button>
+              </div>
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/epic/offer/Arise_Portrait2-1280x1440-a48e80bc18bcd497eea6ccb752bcbfda.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/undefined/offer/EGS_DEVELOPER_ARISE_IC1_WHITE-200x200-791a69d1f9875e505aeb468a1d8dd281.png?h=270&resize=1&w=480"
+                  />
+                </div>
+    
+                <h3 class="title">Arise: A Simple Story</h3>
+                <div class="sub-title">Piccolo | Techland</div>
+                <button class="price-button">Play Now</button>
+              </div>
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/undefined/offer/Game-Logo_ShenmueIII-3168x692-b925655b198cf955c0802f4581faf6a3.png?h=270&resize=1&w=480"
+                  />
+                </div>
+    
+                <h3 class="title">Shenmue III</h3>
+                <div class="sub-title">Ysnet | Deepsilver</div>
+                <button class="price-button">Play Now</button>
+              </div>
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/undefined/offer/SWJFO_ADHOC_510X680-510x680-04ec2ab0afa8b571f51c34577bf1ec09.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img class="game-logo" src="" />
+                </div>
+    
+                <h3 class="title">Star Wars Jedi</h3>
+                <div class="sub-title">Respawn Entertainment</div>
+                <button class="price-button">Play Now</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="trial-weekend">
+          <div class="container">
+            <h3 class="main-title heading">Try New Racing Game</h3>
+            <div class="main-content">
+              <div class="prim-content">
+                <h1 class="game-title">The Crew 2</h1>
+                <h2 class="details">
+                  Roll out with your crew, trial weekend runs December 5-9.
+                </h2>
+                <button class="play-btn">PLAY NOW</button>
+              </div>
+              <div class="graphic-content"></div>
+            </div>
+          </div>
+        </section>
+         <section id="coming-soon">
+          <div class="container">
+            <h3 class="sec-title heading">Coming Soon</h3>
+            <div class="games">
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/undefined/offer/S2-Store-Primary-Promo-1280x1440-9ed9999a41eda751681e392016d636ba.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/undefined/offer/mechwarrior-5-logo-white-gradient-1309x153-289a48edbf524ce429964b2e0606f043.png?h=270&resize=1&w=480"
+                  />
+                </div>
+    
+                <h3 class="title">MechWarrior 5</h3>
+                <div class="sub-title">Available 11/08/2023</div>
+              </div>
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/undefined/offer/EGS_REBELLION_ZOMBIEARMY4_S3_KEYART-1280x1440-71bf2f5ce16e76bbd7dcc2397837e65f.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/undefined/offer/EGS_REBELLION_ZOMBIEARMY4_IC1_COLOR_ResizednOptimized-1920x998-778c9fb7e6ed950106326d9961ecd76f.png?h=270&resize=1&w=480"
+                  />
+                </div>
+    
+                <h3 class="title">Zombie Army 4: Dead War</h3>
+                <div class="sub-title">Available 11/08/2023</div>
+              </div>
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/epic/offer/Manater_Epic_PortraitPromo1288x1450 (1)-1288x1450-3f3224ed80617513f63a140ee53a4aff.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/epic/offer/Maneater_Logo-1200x661-09de7acd5f074c912994a55fd878893b.png?h=270&resize=1&w=480"
+                  />
+                </div>
+    
+                <h3 class="title">Maneater</h3>
+                <div class="sub-title">Available 11/08/2023</div>
+              </div>
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/undefined/offer/002_DETROIT_STOREPORTRAIT-1280x1420-7cec122a58dacf56e47ad7478468d9e3.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/epic/offer/DETROIT_LOGO-960x311-e5a19301369771bc77176429948203d2.png?h=270&resize=1&w=480"
+                  />
+                </div>
+    
+                <h3 class="title">Detroit: Become Human</h3>
+                <div class="sub-title">Available 11/08/2023</div>
+              </div>
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/epic/offer/EGS_KojimaProductions_DeathStranding_S2-1280x1440-5a96ed93665756b28f6d70e65266e64c.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img class="game-logo" src="" />
+                </div>
+    
+                <h3 class="title">Death Stranding</h3>
+                <div class="sub-title">Available 11/08/2023</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="after-party">
+          <div class="container">
+            <h3 class="main-title heading">Halloween Special</h3>
+            <div class="main-content">
+              <div class="prim-content">
+                <h1 class="game-title">Halloween</h1>
+                <h2 class="details">
+                  Immerse yourself in spine-tingling terror as you 
+                  navigate a haunted mansion, solve eerie mysteries,
+                  and confront your deepest fears!
+                </h2>
+                <button class="outnow-btn">PLAY NOW</button>
+              </div>
+              <div class="graphic-content"></div>
+            </div>
+          </div>
+        </section>
+       <section id="rising">
+          <div class="container">
+            <h3 class="sec-title heading">Rising</h3>
+            <div class="games">
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/epic/offer/EGS_IceflakeStudiosOy_SurvivingtheAftermath_S2-1280x1440-af3acb75ff51e12f51df879d9050317a.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img class="game-logo" src=""" />
+                </div>
+    
+                <h3 class="title">Surviving The Aftermath</h3>
+                <div class="sub-title">Icefalke Studios Oy</div>
+                <button class="price-button">Play Now</button>
+              </div>
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/undefined/offer/EGS_HouseHouse_UntitledGooseGame_S3-1280x1440-63aaed5f67d9e82f8443211c5089d2b3.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/epic/offer/EGS_HouseHouse_UntitledGooseGame_IC1_SVGColourLight-1108x367-ae5e6b33b09a3924991b2ff29fd57891.png?h=270&resize=1&w=480"
+                  />
+                </div>
+    
+                <h3 class="title">Untitled Goose Game</h3>
+                <div class="sub-title">House House | Panic</div>
+                <button class="price-button">Play Now</button>
+              </div>
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/undefined/offer/Store_Portrait_Promo_1280x1420-1280x1420-7ae4d9785fcb96b0ef214654210a0e3e.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/undefined/offer/R6S_Logo_Color_1000x375-1000x375-8e2b21c06400f36fae8d6a6695cd7155.png?h=270&resize=1&w=480"
+                  />
+                </div>
+    
+                <h3 class="title">Rainbow Six Seige</h3>
+                <div class="sub-title">Ubisoft</div>
+                <button class="price-button">Play Now</button>
+              </div>
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/epic/offer/EGS_PanacheDigitalGames_Ancestors_S4_1280x1440-1280x1440-4a62ef24f5cd0f4fc0d40b70b80b5869.png?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/epic/offer/EGS_PanacheDigitalGames_AncestorsTheHumankindOdyssey_IC1_GameLogoDarkbg-3000x1206-32a3a2c8b1036e5d757171bfc9c960ed.png?h=270&resize=1&w=480"
+                  />
+                </div>
+    
+                <h3 class="title">Ancestors</h3>
+                <div class="sub-title">Panache Digital Games</div>
+                <button class="price-button">Play Now</button>
+              </div>
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/epic/offer/EGS_COFFEESTAIN_SATISFACTORY_S3_Update2KeyArt-1280x1440-ae196b264841dec7343786edf336350f.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/epic/offer/EGS_COFFEESTAIN_SATISFACTORY-1600x883-70069bb391d671c8363406b5f3b49031.png?h=270&resize=1&w=480"
+                  />
+                </div>
+    
+                <h3 class="title">Satisfactory</h3>
+                <div class="sub-title">Stain Studios</div>
+                <button class="price-button">Play Now</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="most-pop">
+          <div class="container">
+            <h3 class="sec-title heading">Most Popular</h3>
+            <div class="games">
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/epic/offer/EGS_Launcher_Fortnite_11BR_S2-1280x1440-7f86ba3d9ce5bf6c957e627613d8ce06.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/epic/offer/Fortnite_logo_white-430x250-dac6db14efb7756ab3c22d0d5457067d-430x250-dac6db14efb7756ab3c22d0d5457067d.png?h=270&resize=1&w=480"
+                  />
+                </div>
+    
+                <h3 class="title">Fortnite Battle Royale</h3>
+                <div class="sub-title">Epic Games</div>
+                <button class="price-button">Play Now</button>
+              </div>
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/epic/offer/EN_EGS_Launcher_Takeover_Borderlands_S2-1280x1440-4e2e8a65b68229dc833cf5c4773f23c4.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/epic/offer/Oak_Logo_Standard-720x209-8373e0df5612a9952fe79defb32e1322.png?h=270&resize=1&w=480"
+                  />
+                </div>
+    
+                <h3 class="title">Borderlands 3</h3>
+                <div class="sub-title">Gearbox Software | 2K</div>
+                <button class="price-button">Play Now</button>
+              </div>
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/undefined/offer/EGS_RockstarGames_RedDeadRedemption2_S2-1280x1440-43b9260015986b748e616f399c6de4dc.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/undefined/offer/EGS_RockstarGames_RedDeadRedemption2_IC1-625x625-53323ce93fb72cdb3e849730f6bdce83.png?h=270&resize=1&w=480"
+                  />
+                </div>
+    
+                <h3 class="title">Read Dead Redemption 2</h3>
+                <div class="sub-title">Rockstar Games</div>
+                <button class="price-button">Play Now</button>
+              </div>
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/epic/offer/ANC_Banner_TOW_NoLogo_1280x1440 (2)-1280x1140-5b445a5bbd0ba31cc63cbcb373ccfaa0.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/epic/offer/TheOuterWorlds-logo-dropshadow (1)-5544x2422-448a144fddbb69f460cb660441011eb9.png?h=270&resize=1&w=480"
+                  />
+                </div>
+    
+                <h3 class="title">The Outer Worlds</h3>
+                <div class="sub-title">Obsidian Entertainment</div>
+                <button class="price-button">Play Now</button>
+              </div>
+              <div class="game">
+                <div class="img-box">
+                  <img
+                    class="game-img"
+                    src="https://cdn1.epicgames.com/epic/offer/Dauntless_portrait-807x913-6bcb0ec70d9d5a0ac88931efe4f1834a.jpg?h=854&resize=1&w=640"
+                    alt="game-pic"
+                  />
+                  <img
+                    class="game-logo"
+                    src="https://cdn1.epicgames.com/epic/offer/DauntlessHauntedShadows_Logo-600x200-b01ee63f1ef8e09817c46bc0abd097f5.png?h=270&resize=1&w=480"
+                  />
+                </div>
+    
+                <h3 class="title">Dauntless</h3>
+                <div class="sub-title">Phoenix Labs</div>
+                <button class="price-button">Play Now</button>
+              </div>
+            </div>
+          </div>
+        </section>
+       <section id="categories">
+          <div class="container">
+            <h3 class="main-title heading">Popular Categories</h3>
+            <div class="main-content">
+              <div class="category">
+                <h4 class="title">Action</h4>
+              </div>
+              <div class="category">
+                <h4 class="title">Adventure</h4>
+              </div>
+              <div class="category">
+                <h4 class="title">Sports</h4>
+              </div>
+              <div class="category">
+                <h4 class="title">Educational</h4>
+              </div>
+              <div class="category">
+                <h4 class="title">Puzzle</h4>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="store-catalog">
+          <div class="container">
+            <h3 class="main-title heading">8MAN Store Catalogue</h3>
+            <div class="main-content">
+              <div class="info-content">
+                <h1 class="main-head">Browse</h1>
+                <h3 class="sub-head">
+                  Explore our catalog for your next favorite game!
+                </h3>
+                <button class="browse-btn" onclick="game()">BROWSE ALL</button>
+              </div>
+              <div class="graphic-content"></div>
+            </div>
+          </div>
+        </section>
+    </main>
+    <footer>
+        <div class="top-content">
+            <div class="socials">
+              <img src="./assets/icons8-facebook-32.png" alt="fb" class="social" onclick="facebook()"/>
+              <img
+                src="./assets/icons8-twitter-50.png"
+                alt="twitter"
+                class="social"
+                onclick="twitter()"
+              />
+              <img
+                src="./assets/icons8-play-button-50.png"
+                alt="yt"
+                class="social"
+                onclick="youtube()"
+              />
+            </div>
+          </div>
+          <div class="res-madeby">
+            <div class="resources">
+              <h3 class="small-title">Resources</h3>
+              <div class="content">
+                <ul class="resource-ctr" style="list-style: none;">
+                  <li>Support-A-Creator</li>
+                  <li>Publish By 8MAN Studio</li>
+                  <li>Careers</li>
+                </ul>
+                <ul class="resource-ctr" style="list-style: none;">
+                  <li>Company</li>
+                  <li>Fan Art Policy</li>
+                  <li>UX Research</li>
+                </ul>
+                <ul class="resource-ctr" style="list-style: none;">
+                  <li>Store EULA</li>
+                  <li>Online Services</li>
+                  <li>Community Rules</li>
+                </ul>
+              </div>
+            </div>
+            <div class="made-by">
+              <h3 class="small-title">Made By H8 Corp & Mnc</h3>
+              <div class="content">
+                <ul class="madeby-ctr" style="list-style: none;">
+                  <li>Visual Creativity</li>
+                  <li>User-Centered Approach</li>
+                  <li>Technical Proficiency</li>
+                  <li>Adaptability and Collaboration</li>
+                </ul>
+                <ul class="madeby-ctr" style="list-style: none;">
+                  <li>Ambiguity</li>
+                  <li>Paradox</li>
+                  <li>Juxtaposition</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="text-cont">
+            © 2023, HY8RID CORP INC Welcome to our vibrant Game Zone, 
+            a labor of love by two passionate creators!
+            Dive into a world of endless fun, 
+            where imagination knows no bounds. 
+            Discover an array of exciting games, puzzles, 
+            and adventures designed to entertain and 
+            challenge players of all ages. 
+            Join us on this thrilling journey,
+            where every click sparks joy and excitement!
+          </div>
+          <div class="down-content">
+            <div class="left-cont" style="list-style: none;">
+              <li>Terms of Service</li>
+              <li>Privacy Policy</li>
+            </div>
+            <div>
+              <div class="logo" id="logo">
+                <img src="images/logo.gif" alt="8MAN STUDIOS">
+              </div>
+            </div>
+          </div>
+
+        
+    </footer>
+    <p class="humnay_isspay_kaam_kiya_hai"> 2023 HY8RID CORP. © All rights reserved.</p>
+
+    <script src="index.js"></script>
+    <script src="jquery.js"></script>
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/57cf0646d6.js" crossorigin="anonymous"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

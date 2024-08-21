@@ -1,0 +1,123 @@
+body{
+    background-color: #222;
+}
+/*all games*/
+.all-games{
+    margin-top: 15vh;
+}
+#new-release {
+    color: #fff;
+  }
+  
+  #new-release .container {
+    max-width: 1300px;
+    padding: 0 100px;
+    margin: auto;
+  }
+  
+  #new-release .container .heading {
+    margin: 0 0 20px 0;
+  }
+  .heading{
+      color: #FFD700;
+      font-weight: bold;
+  }
+  .game-img{
+      z-index: 0;
+  }
+  
+  #new-release .container .new-games-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 15px;
+  }
+  
+  #new-release .container .new-games-list .single-game {
+    height: 500px;
+    overflow: hidden;
+  }
+  
+  #new-release .container .new-games-list .single-game .img-box {
+    position: sticky;
+    height: 300px;
+    margin: 0 0 10px 0;
+    z-index: -1;
+  }
+  
+  #new-release .container .new-games-list .single-game .img-box .game-img {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  
+  #new-release .container .new-games-list .single-game .img-box .game-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+  }
+  
+  #new-release .container .new-games-list .single-game .title {
+    padding: 0px 0 0px 0;
+  }
+  
+  #new-release .container .new-games-list .single-game .sub-title {
+    color: hsla(0, 0%, 100%, 0.5);
+    margin: 0 0 25px 0;
+    font-weight: bold;
+  }
+  
+  #new-release .container .new-games-list .single-game {
+    font-weight: bold;
+  }
+  .price-button {
+          background-color: #FFD700;
+          color: #ffffff;
+          font-weight: 600;
+          border: none;
+          border-radius: 5px;
+          padding: 10px 20px;
+          cursor: pointer;
+          font-size: 16px;
+          transition: background-color 0.3s;
+      }
+  
+  .price-button:hover {
+      background-color: #FFA500;
+  }
+  
+  @media (max-width: 1330px) {
+    #new-release .container {
+      padding: 0 30px;
+    }
+  }
+  
+  @media (max-width: 1150px) {
+    #new-release .container .new-games-list {
+      grid-template-columns: repeat(5, 250px);
+      overflow-x: auto;
+    }
+  
+    #new-release .container .new-games-list:nth-child(5) {
+      display: none;
+    }
+  
+    .new-games-list::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    #new-release .container .new-games-list {
+      grid-template-columns: repeat(5, 230px);
+    }
+  }
+  
+  @media (max-width: 350px) {
+    #new-release .container .new-games-list {
+      grid-template-columns: repeat(5, 210px);
+    }
+  }
